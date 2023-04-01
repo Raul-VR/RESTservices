@@ -17,5 +17,5 @@ class usuariosViewSet(viewsets.ModelViewSet):
     serializer_class = usuariosSerializer
 
 class partidasViewSet(viewsets.ModelViewSet):
-    queryset = partidas.objects.all()
+    queryset = partidas.objects.all() #.order_by('id')
     serializer_class = partidasSerializer
