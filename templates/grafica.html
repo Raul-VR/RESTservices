@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["gauge"]});
+      google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = google.visualization.arrayToDataTable({{values|safe}});
+
+      var options = {
+          width: 400, height: 300,
+          greenFrom: 5, greenTo: 6,
+          yellowFrom: 3, yellowTo: 5,
+          majorTicks: ['0', '1', '2', '3', '4', '5', '6'],
+          minorTicks: 1,
+          max: 6,
+        };
+
+      var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
+  </script>
+</head>
+<body>
+  <h1>Nivel más alto que ha jugado el usuario 5</h1>
+  <p>El nivel maximo es 6, y se espera que los alumnos se encuentren en ese nivel</p>
+  <br>
+  <div id="chart_div" style="width: 900px; height: 500px;"></div>
+</body>
+</html>
